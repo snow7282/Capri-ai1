@@ -1,0 +1,28 @@
+CAPRI APK BUILD — NO COLAB
+=========================
+
+This project is not itself an APK. The included GitHub Actions workflow builds
+an installable debug APK on a GitHub-hosted Android build runner, which has
+network access and can install the Android SDK, NDK and Gradle.
+
+One-time steps:
+1. Sign in to GitHub and create a new EMPTY repository named CapriAI.
+2. Extract this ZIP on a computer, or upload its contents using GitHub's web UI.
+   Keep the .github/workflows/build-apk.yml file and .gitmodules file.
+3. IMPORTANT: the llama.kt dependency is a Git submodule. If using Git locally,
+   run: git submodule update --init --recursive
+   If uploading through the web UI, the submodule will not be initialized;
+   use GitHub's web editor/desktop or a Git client that supports submodules.
+4. Push the project to the repository's main branch.
+5. Open the repository's Actions tab and select "Build Capri APK".
+6. When the workflow completes successfully, open its run and download the
+   "CapriAI-debug-apk" artifact. Extract it to get app-debug.apk.
+7. Transfer app-debug.apk to the Android phone and install it.
+
+The APK does not contain Capri's GGUF. Import the original GGUF inside the app.
+
+This workflow has been prepared but NOT executed in this ChatGPT workspace.
+The current workspace has no Android SDK, NDK or Gradle installation, and its
+network/DNS is disabled, so an APK cannot be compiled or verified here. The
+first remote build may expose dependency/API errors; if so, share the Actions
+log and the project can be corrected.
